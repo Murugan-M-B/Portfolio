@@ -2292,9 +2292,13 @@ body.cur-ready button {
    ══════════════════════════════════════════════════ */
 .contact-grid {
    display: grid;
-   grid-template-columns: 1fr .8fr auto;
-   gap: 40px;
+   grid-template-columns: 1.1fr 1fr auto;
+   gap: 60px;
    align-items: start;
+}
+
+.contact-photo-wrap {
+   margin-left: 30px;
 }
 
 .cform {
@@ -3286,40 +3290,89 @@ body.cur-ready #cur-spotlight {
 
    /* Contact */
    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 36px;
-      text-align: center;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 16px;
+      grid-template-areas:
+         "form form"
+         "title title"
+         "desc desc"
+         "photo links"
+         "photo socials";
+      text-align: left;
    }
 
    .cf-row-2 {
       grid-template-columns: 1fr;
    }
 
-   .contact-info-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
+   .contact-form-wrap {
+      grid-area: form;
    }
 
-   .ci-links {
-      align-items: center;
+   .contact-info-wrap {
+      display: contents;
+   }
+
+   .ci-title {
+      grid-area: title;
       text-align: center;
    }
 
+   .ci-desc {
+      grid-area: desc;
+      text-align: center;
+      margin-bottom: 24px;
+   }
+
+   .ci-links {
+      grid-area: links;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      gap: 10px;
+   }
+
+   .ci-link {
+      justify-content: flex-start;
+      font-size: 0.82rem;
+   }
+
+   .ci-link-ico {
+      width: 32px;
+      height: 32px;
+      font-size: 0.75rem;
+   }
+
    .ci-socials {
-      justify-content: center;
+      grid-area: socials;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 10px;
+   }
+
+   .ci-soc-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 0.9rem;
+   }
+
+   .ci-link span:last-child {
+      word-break: break-all;
    }
 
    .contact-photo-wrap {
+      grid-area: photo;
       display: flex;
+      align-items: flex-start;
       justify-content: center;
-      width: 100%;
-      margin: 20px 0 0 0;
+      margin: 0 20px 0 8px;
+      width: auto;
    }
 
    .ct-photo {
-      width: clamp(200px, 60vw, 280px);
+      width: clamp(120px, 38vw, 160px);
       height: auto;
       aspect-ratio: 3/4;
    }
